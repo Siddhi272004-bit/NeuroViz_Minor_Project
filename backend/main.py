@@ -95,6 +95,10 @@ allowed_origins = [
     "http://127.0.0.1:3000",
 ]
 
+# Extra origins (e.g. your Vercel URL) come from a Render environment variable.
+extra_origins = os.environ.get("ALLOWED_ORIGINS", "")
+allowed_origins += [o.strip().rstrip("/") for o in extra_origins.split(",") if o.strip()]
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=allowed_origins,
