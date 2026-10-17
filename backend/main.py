@@ -102,6 +102,7 @@ allowed_origins += [o.strip().rstrip("/") for o in extra_origins.split(",") if o
 app.add_middleware(
     CORSMiddleware,
     allow_origins=allowed_origins,
+    allow_origin_regex=r"https://neuro-viz-minor-project.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["*"],
