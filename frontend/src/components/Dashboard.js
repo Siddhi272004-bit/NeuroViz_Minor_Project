@@ -24,9 +24,9 @@ import RawSignalView from "./RawSignalView";
 import SensorMap from "./SensorMap";
 import { getChannelColor } from "./eegData";
 
-const API_BASE_URL =
-  process.env.BASE_URL ||
-  "http://127.0.0.1:8000";
+const API_BASE_URL = (
+  process.env.REACT_APP_API_BASE_URL || "http://127.0.0.1:8000"
+).replace(/\/$/, "");
 
 const Dashboard = ({
   data,
